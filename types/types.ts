@@ -1,4 +1,4 @@
-import Stripe from 'stripe';
+import Stripe from "stripe";
 
 export interface UserDetails {
   id: string;
@@ -52,7 +52,7 @@ export interface ProductWithPrice extends Product {
 }
 export interface Subscription {
   id: string;
-  user_id:string;
+  user_id: string;
   status?: Stripe.Subscription.Status;
   metadata?: Stripe.Metadata;
   price_id?: string;
