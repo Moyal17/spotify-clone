@@ -1,33 +1,35 @@
-"use client";
-import { usePathname } from "next/navigation";
-import { useMemo } from "react";
-import { HiHome } from "react-icons/hi";
-import { BiSearch } from "react-icons/bi";
-import SideBarBox from "@/Components/SideBar/SideBarBox";
-import SideBarItem from "@/Components/SideBar/SideBarItem";
-import Library from "@/Components/Library/Library";
+'use client';
+import { usePathname } from 'next/navigation';
+import { useMemo } from 'react';
+import { HiHome } from 'react-icons/hi';
+import { BiSearch } from 'react-icons/bi';
+import SideBarBox from '@/Components/SideBar/SideBarBox';
+import SideBarItem from '@/Components/SideBar/SideBarItem';
+import Library from '@/Components/Library/Library';
+import { type Song } from '@/types/types';
 interface SideBarProps {
-  children: React.ReactNode;
+  children: React.ReactNode
+  songs: Song[]
 }
 
-const SideBar: React.FC<SideBarProps> = ({ children }) => {
+const SideBar: React.FC<SideBarProps> = ({ children, songs }) => {
   const pathName = usePathname();
   const routes = useMemo(
     () => [
       {
         icon: HiHome,
-        label: "Home",
-        isActive: pathName !== "/search",
-        href: "/",
+        label: 'Home',
+        isActive: pathName !== '/search',
+        href: '/'
       },
       {
         icon: BiSearch,
-        label: "Search",
-        isActive: pathName === "/search",
-        href: "/search",
-      },
+        label: 'Search',
+        isActive: pathName === '/search',
+        href: '/search'
+      }
     ],
-    [pathName],
+    [pathName]
   );
   return (
     <div className="flex h-full">
@@ -38,7 +40,7 @@ const SideBar: React.FC<SideBarProps> = ({ children }) => {
           ))}
         </SideBarBox>
         <SideBarBox className="overflow-y-hidden h-full">
-          <Library />
+          <Library songs={songs}/>
         </SideBarBox>
       </div>
       <main className="flex-1 h-full overflow-y-auto py-2">{children}</main>

@@ -7,7 +7,7 @@ import { HiHome } from 'react-icons/hi'
 import { BiSearch } from 'react-icons/bi'
 import { FaUserAlt } from 'react-icons/fa'
 import { useSupabaseClient } from '@supabase/auth-helpers-react'
-import Button from '@/Components/Button/Button'
+import Button from '@/Components/Buttons/Button'
 import useAuthModal from '@/hooks/useAuthModal'
 import { useUser } from '@/hooks/useUser'
 

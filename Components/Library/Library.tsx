@@ -1,11 +1,24 @@
-"use client";
-import { TbPlaylist } from "react-icons/tb";
-import { AiOutlinePlus } from "react-icons/ai";
-interface LibraryProps {}
+'use client';
+import { TbPlaylist } from 'react-icons/tb';
+import { AiOutlinePlus } from 'react-icons/ai';
+import { useUser } from '@/hooks/useUser';
+import useAuthModal from '@/hooks/useAuthModal';
+import useUploadModal from '@/hooks/useUploadModal';
+import { type Song } from '@/types/types';
+interface LibraryProps {
+  songs: Song[]
+}
 
-const Library: React.FC<LibraryProps> = () => {
-  const onClick = () => {
-    console.log("click");
+const Library: React.FC<LibraryProps> = ({ songs}) => {
+  const authModal = useAuthModal()
+  const uploadModal = useUploadModal();
+  const { user } = useUser();
+  const handleUploadSong = () => {
+    if (!user) {
+      authModal.onOpen()
+      return;
+    }
+    uploadModal.onOpen();
   };
   return (
     <div className="flex flex-col">
@@ -16,11 +29,13 @@ const Library: React.FC<LibraryProps> = () => {
         </div>
         <AiOutlinePlus
           size={24}
-          onClick={onClick}
+          onClick={() => { handleUploadSong(); }}
           className="text-neutral-400 cursor-pointer hover:text-white transition"
         />
       </div>
-      <div className="flex flex-col gap-y-2 mt-4 px-3">List of Songs</div>
+      <div className="flex flex-col gap-y-2 mt-4 px-3">
+        { songs.map((song) => <div key={song.id}> { song.title }</div> )}
+      </div>
     </div>
   );
 };
