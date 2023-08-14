@@ -9,6 +9,8 @@ In this project, I undertook the creation of a comprehensive music streaming app
 To power the backend, I employed Supabase, an open-source alternative to Firebase, built on PostgreSQL. This choice facilitated the creation of a robust foundation for the application. I meticulously established the Supabase project, designed database schemas, and seamlessly implemented authentication processes to ensure a secure user registration and login system.
 
 ### Work Duration: 6 days
+
+[video](example.mp4)
 ### Key Features:
 
 - Song Upload: Implemented a seamless song upload system, allowing users to contribute to the platform's music library.
