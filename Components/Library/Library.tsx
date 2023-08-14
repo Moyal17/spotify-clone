@@ -4,15 +4,18 @@ import { AiOutlinePlus } from 'react-icons/ai';
 import { useUser } from '@/hooks/useUser';
 import useAuthModal from '@/hooks/useAuthModal';
 import useUploadModal from '@/hooks/useUploadModal';
+import SongItemSideBar from '@/Components/SongItem/SongItemSideBar'
 import { type Song } from '@/types/types';
+import useOnPlay from '@/hooks/useOnPlay';
 interface LibraryProps {
   songs: Song[]
 }
 
-const Library: React.FC<LibraryProps> = ({ songs}) => {
+const Library: React.FC<LibraryProps> = ({ songs }) => {
   const authModal = useAuthModal()
   const uploadModal = useUploadModal();
   const { user } = useUser();
+  const onPlay = useOnPlay(songs);
   const handleUploadSong = () => {
     if (!user) {
       authModal.onOpen()
@@ -34,7 +37,9 @@ const Library: React.FC<LibraryProps> = ({ songs}) => {
         />
       </div>
       <div className="flex flex-col gap-y-2 mt-4 px-3">
-        { songs.map((song) => <div key={song.id}> { song.title }</div> )}
+        { songs.map((song) => (
+          <SongItemSideBar key={song.id} onClick={(id) => { onPlay(id); }} data={song} />
+        ))}
       </div>
     </div>
   );
