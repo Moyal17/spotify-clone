@@ -42,4 +42,14 @@ npm run dev
 yarn dev
 ```
 
+
+
+## Setup .env file
+```bash
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+SUPABASE_SERVICE_ROLE_KEY=
+```
+
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

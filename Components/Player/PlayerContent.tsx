@@ -1,4 +1,6 @@
 'use client';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error
 import useSound from 'use-sound';
 import { useEffect, useState } from 'react';
 import { BsPauseFill, BsPlayFill } from 'react-icons/bs';
