@@ -66,7 +66,7 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
             <div className="flex flex-row flex-no-wrap gap-x-4 items-center">
               <Button
                 className="bg-white px-6 py-2"
-                onClick={() => handleLogout()}>
+                onClick={() => { handleLogout(); }}>
                 Log out
               </Button>
               <Button
