@@ -13,7 +13,8 @@ const useOnPlay = (songs: Song[]) => {
 
   const onPlay = (id: string) => {
     if (!user) {
-      authModal.onOpen(); return;
+      authModal.onOpen();
+      return;
     }
 
     if (!subscription) {

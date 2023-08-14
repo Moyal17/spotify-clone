@@ -31,7 +31,7 @@ const SearchContent: React.FC<SearchContentProps> = ({
         >
           <div className="flex-1">
             <SongItemSideBar
-              onClick={(id: string) => onPlay(id)}
+              onClick={(id: string) => { onPlay(id); }}
               data={song}
             />
           </div>
