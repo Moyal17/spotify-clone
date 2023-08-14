@@ -1,25 +1,25 @@
-"use client";
-import { useRouter } from "next/navigation";
-import { twMerge } from "tailwind-merge";
-import Image from "next/image";
+'use client';
+import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 interface ListItemProps {
-  image: string;
-  name: string;
-  href: string;
-  className?: string;
+  image: string
+  name: string
+  href: string
+  className?: string
 }
 
 const ListItem: React.FC<ListItemProps> = ({
   image,
   name,
   href,
-  className,
+  className
 }) => {
   const router = useRouter();
 
-  const onClick = () => router.push(href);
+  const onClick = () => { router.push(href); };
   return (
     <button
+      onClick={onClick}
       className="relative group flex items-center rounded-md overflow-hidden gap-x-4
     bg-neutral-100/10 hover:bg-neutral-100/20 transition pr-4"
     >

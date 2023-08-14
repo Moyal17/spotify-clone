@@ -5,7 +5,7 @@ import SideBar from '@/Components/SideBar/SideBar';
 import SupabaseProvider from '@/providers/supabaseProvider';
 import { MyUserContextProvider } from '@/hooks/useUser';
 import ModalProvider from '@/providers/modalProvider';
-import getSongsByUserId from '@/actions/getSongsByUserId';
+import { getSongsByUserId } from '@/actions/songsActions';
 
 const font = Figtree({ subsets: ['latin'] });
 

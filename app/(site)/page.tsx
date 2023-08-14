@@ -1,9 +1,9 @@
 import Header from '@/Components/Header/Header';
 import ListItem from '@/Components/ListItem/ListItem';
-import getSongs from '@/actions/getSongs';
+import { getSongs } from '@/actions/songsActions';
 import PageContent from '@/app/(site)/Components/PageContent';
 
-export const revalidate = 0 // we dont want this component to be cached
+export const revalidate = 0 // we don't want this component to be cached
 
 export default async function Home () {
   const songs = await getSongs()

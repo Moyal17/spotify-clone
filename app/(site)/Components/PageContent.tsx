@@ -1,7 +1,7 @@
 'use client';
-import { type Song } from '@/types/types';
-// import useOnPlay from '@/hooks/useOnPlay';
+import useOnPlay from '@/hooks/useOnPlay';
 import SongItem from '@/Components/SongItem/SongItem';
+import { type Song } from '@/types/types';
 
 interface PageContentProps {
   songs: Song[]
@@ -10,7 +10,7 @@ interface PageContentProps {
 const PageContent: React.FC<PageContentProps> = ({
   songs
 }) => {
-  const onPlay = id => id; // useOnPlay(songs);
+  const onPlay = useOnPlay(songs);
 
   if (songs.length === 0) {
     return (
